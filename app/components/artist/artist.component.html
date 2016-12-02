@@ -1,0 +1,25 @@
+<div *ngIf="artist">
+	<header class="artist-header">
+		<div *ngIf="artist.images.length > 0">
+			<img src="{{artist.images[0].url}}" alt="" class="artist-thumb img-circle" >
+		</div>
+		<h1>{{artist.name}}</h1>
+		<p *ngIf="artist.genres.length > 0">
+			<strong>Genres</strong>
+			<span class="label label-default" *ngFor="let genre of artist.genres">{{genre}}</span>
+	</header>
+
+	<div class="artist-albums" *ngIf="albums">
+		<div class="row">
+			<div *ngFor="let album of albums">
+				<div class="col-md-3">
+					<div class="album well">
+						<img src="{{album.images[0].url}}" alt="" class="album-thumb img-thumbnail">
+						<h4>{{album.name}}</h4>
+						<a routerLink="/album/{{album.id}}" class="btn btn-primary btn-block">Album Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
